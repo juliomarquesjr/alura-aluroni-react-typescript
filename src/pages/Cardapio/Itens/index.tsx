@@ -12,7 +12,7 @@ interface ItensProps {
 
 export default function Itens(props: ItensProps) {
   const [lista, setLista] = useState(cardapio);
-  const { busca, filtro } = props;
+  const { busca, filtro, ordenador } = props;
 
   function testeBusca(title: string) {
     const regex = new RegExp(busca, "i");
@@ -21,15 +21,29 @@ export default function Itens(props: ItensProps) {
 
   function testeFiltro(id: number) {
     if (filtro !== null) return filtro === id;
-    return true
+    return true;
+  }
+
+  function ordenar(novaLista: typeof cardapio) {
+    switch (ordenador) {
+      case "porcao":
+        return novaLista.sort((a, b) => (a.size > b.size ? 1 : -1));
+      case "porcao":
+        return novaLista.sort((a, b) => (a.serving > b.serving ? 1 : -1));
+      case "preco":
+        return novaLista.sort((a, b) => (a.price > b.price ? 1 : -1));
+
+      default:
+        return novaLista;
+    }
   }
 
   useEffect(() => {
     const novaLista = cardapio.filter(
       (item) => testeBusca(item.title) && testeFiltro(item.category.id)
     );
-    setLista(novaLista);
-  }, [busca, filtro]);
+    setLista(ordenar(novaLista));
+  }, [busca, filtro, ordenador]);
 
   return (
     <div className={styles.itens}>
