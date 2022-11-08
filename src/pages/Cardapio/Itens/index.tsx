@@ -1,6 +1,6 @@
 import React from "react";
 import Item from "./Item";
-import styles from "./Itens.module.scss"
+import styles from "./Itens.module.scss";
 
 import cardapio from "./itens.json";
 

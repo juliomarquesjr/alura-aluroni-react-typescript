@@ -16,9 +16,7 @@ export default function Cardapio() {
         <Logo />
       </nav>
       <header className={styles.header}>
-        <div className={styles.header__text}>
-          A casa do código e da massa
-        </div>
+        <div className={styles.header__text}>A casa do código e da massa</div>
       </header>
       <section className={styles.cardapio}>
         <h3 className={styles.cardapio__titulo}>Cardápio</h3>
@@ -30,5 +28,5 @@ export default function Cardapio() {
         <Itens />
       </section>
     </main>
-  )
+  );
 }
