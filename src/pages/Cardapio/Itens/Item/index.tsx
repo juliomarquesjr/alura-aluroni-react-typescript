@@ -1,9 +1,5 @@
-import React from "react";
 import styles from "./Item.module.scss";
-
-import logo from "assets/logo.svg";
 import cardapio from "../itens.json";
-
 import classnames from "classnames";
 
 type ItemProps = typeof cardapio[0];
